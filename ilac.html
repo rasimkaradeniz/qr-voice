@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><Input></Input>traxyl Prospektüs</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #333;
+            z-index: 999;
+        }
+
+        .spinner {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #007bff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="">
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Sayfa yükleniyor, lütfen bekleyin...</p>
+    </div>
+
+
+    <div class="bg-gray-50 text-gray-800 leading-relaxed py-4">
+
+        <main class="container mx-auto  p-6 bg-white shadow-lg rounded-xl">
+            <div
+                class="sticky top-0 left-0 flex items-center justify-between bg-white py-4 mb-6 border-b border-gray-300">
+                <h1 class="text-3xl font-bold text-blue-700 mb-4 text-center">💊 İtraxyl 100 mg Mikropellet Kapsül</h1>
+                <div id="startOverlay" class="fixed inset-0 flex flex-col items-center justify-center bg-white z-[998]">
+                    <button id="startBtn" aria-label="Dinlemeyi başlatmak için ekrana dokunun"
+                        class="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg font-semibold shadow-md hover:bg-blue-700 transition">
+                        🎧 Dinlemeyi Başlat
+                    </button>
+                </div>
+
+                <button id="controlBtn"
+                    class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer"
+                    disabled>⏸️ Durdur</button>
+
+            </div>
+
+            <div id="prospektus">
+                <h1 class="text-3xl font-bold text-blue-700 mb-4 text-center opacity-0"> İtraxyl 100 mg Mikropellet Kapsül</h1>
+                <section class="space-y-4">
+                    <p><strong>Etkin madde:</strong> Her bir kapsül 100 mg itrakonazol içerir. <br>
+                        <strong>Yardımcı maddeler:</strong> Mısır nişastası ve diğer katkı maddeleri. <br>
+                        <strong>Farmasötik form:</strong> Mikropellet kapsül. <br>
+                        <strong>Uygulama yolu:</strong> Ağızdan alınır.
+                    </p>
+
+                    <h2 class="text-xl font-semibold text-blue-600">1. İtraxyl nedir ve ne için kullanılır?</h2>
+                    <p>İtraxyl, mantar enfeksiyonlarını tedavi etmek amacıyla kullanılan bir antifungal (mantar karşıtı)
+                        ilaçtır.</p>
+                    <p>Vajinal kandidiyaz (mantar enfeksiyonu), bazı cilt veya tırnak mantarları gibi durumlarda
+                        kullanılabilir. <br>
+                        Kullanım dozu ve süresi hastalığın türüne göre değişir. <br>
+                        (Kaynak: Kısa Ürün Bilgisi PDF) :contentReference[oaicite:0]{index=0}</p>
+
+                    <h2 class="text-xl font-semibold text-blue-600">2. Kullanılmadan önce dikkat edilmesi gerekenler
+                    </h2>
+                    <p><strong>Kullanmamalısınız:</strong> İtrakonazol ya da bileşenlerine alerjiniz varsa; şiddetli
+                        karaciğer yetmezliğiniz varsa.</p>
+                    <p><strong>Dikkatli kullanılmalı:</strong> Karaciğer ya da böbrek sorunları olan kişilerde, kalp
+                        hastalığı olanlarda <br>
+                        Ayrıca, mide asidini azaltan ilaçlarla birlikte kullanılırsa emilimi etkilenebilir.
+                        :contentReference[oaicite:1]{index=1}</p>
+                    <p>Gebelik / emzirme: Gebelikte kullanımı önerilmez; emzirme döneminde dikkatli kullanılmalıdır.
+                        :contentReference[oaicite:2]{index=2}</p>
+
+                    <h2 class="text-xl font-semibold text-blue-600">3. Nasıl kullanılır?</h2>
+                    <p>Doktorunuzun önerdiği doza göre alınmalı. <br>
+                        Yaygın doz: günde 1 kapsül 100 mg, bazı durumlarda daha uzun süreli tedavi gerekebilir. <br>
+                        Kapsülü bütün olarak, yemekten sonra bol su ile yutunuz.</p>
+
+                    <h2 class="text-xl font-semibold text-blue-600">4. Olası yan etkiler</h2>
+                    <p>Her ilaçta olduğu gibi, İtraxyl de yan etkilere neden olabilir:</p>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Mide bulantısı, karın ağrısı</li>
+                        <li>Baş ağrısı</li>
+                        <li>Karaciğer fonksiyonlarında bozulma</li>
+                        <li>Deri döküntüleri, kaşıntı</li>
+                        <li>Kalp yetmezliği nadiren bildirilmiştir</li>
+                    </ul>
+                    <p>Yan etki gözlemlerseniz doktorunuza başvurunuz. :contentReference[oaicite:3]{index=3}</p>
+
+                    <h2 class="text-xl font-semibold text-blue-600">5. Saklanması</h2>
+                    <p>İlacınızı 25 °C altında, nemden koruyarak saklayınız. <br>
+                        Çocukların erişemeyeceği yerlerde muhafaza ediniz. <br>
+                        Son kullanma tarihi geçmiş ürünü kullanmayınız. :contentReference[oaicite:4]{index=4}</p>
+
+                    <h2 class="text-xl font-semibold text-blue-600">Ruhsat Sahibi / Üretici</h2>
+                    <p>GM-Bay / İlaç Bayii (Türkiye). :contentReference[oaicite:5]{index=5}</p>
+                </section>
+
+            </div>
+        </main>
+
+    </div>
+
+
+    <script>
+        // === Global değişkenler ===
+        let utterance;
+        let isPaused = false;
+        let voicesInitialized = false;
+        const controlBtn = document.getElementById("controlBtn");
+        const loader = document.getElementById("loader");
+        const startOverlay = document.getElementById("startOverlay");
+        const startBtn = document.getElementById("startBtn");
+
+        // === Ses motorunu temizle ===
+        speechSynthesis.cancel();
+
+        // === Ana ses akışı ===
+        function startSpeechFlow() {
+            if (voicesInitialized) return;
+            voicesInitialized = true;
+
+            // Loader ve başlangıç ekranını kapat
+            loader.style.display = "none";
+            startOverlay.style.display = "none";
+
+            const text = document.getElementById("prospektus").innerText;
+
+            // 1️⃣ Bilgi mesajı
+            const infoUtter = new SpeechSynthesisUtterance("Dinlemeniz 5 saniye sonra başlayacak.");
+            infoUtter.lang = "tr-TR";
+            speechSynthesis.speak(infoUtter);
+
+            // 2️⃣ Bilgi mesajı bitince 5 saniye bekle, sonra prospektüsü oku
+            infoUtter.onend = () => {
+                setTimeout(() => {
+                    utterance = new SpeechSynthesisUtterance(text);
+                    utterance.lang = "tr-TR";
+
+                    utterance.onstart = () => {
+                        controlBtn.disabled = false;
+                    };
+
+                    utterance.onend = () => {
+                        controlBtn.disabled = true;
+                        controlBtn.textContent = "⏸️ Durdur";
+                        isPaused = false;
+
+                        // 3️⃣ Okuma bittiğinde "tamamlandı" bildirimi
+                        const endUtter = new SpeechSynthesisUtterance("Okuma tamamlandı.");
+                        endUtter.lang = "tr-TR";
+                        speechSynthesis.speak(endUtter);
+                    };
+
+                    speechSynthesis.speak(utterance);
+                }, 5000);
+            };
+        }
+
+        // === Kullanıcı başlatma (mobilde zorunlu) ===
+        startBtn.addEventListener("click", () => {
+            // Bazı tarayıcılarda motoru erken hazırlamak için
+            speechSynthesis.getVoices();
+            startSpeechFlow();
+        });
+
+        // === Durdur / Devam Et butonu ===
+        controlBtn.addEventListener("click", () => {
+            if (!speechSynthesis.speaking) return;
+
+            if (!isPaused) {
+                speechSynthesis.pause();
+                controlBtn.textContent = "▶️ Devam Et";
+                isPaused = true;
+            } else {
+                speechSynthesis.resume();
+                controlBtn.textContent = "⏸️ Durdur";
+                isPaused = false;
+            }
+        });
+
+    </script>
+</body>
+
+</html>

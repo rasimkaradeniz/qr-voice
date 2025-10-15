@@ -37,7 +37,7 @@
 
   <script>
     function generateQR() {
-      const url = window.location.origin + "/parol.html"; // yönlenecek sayfa
+      const url = window.location.origin + "/ilac.html"; // yönlenecek sayfa
       const qrDiv = document.getElementById("qrcode");
       qrDiv.innerHTML = ""; // eski QR'ı temizle
 
@@ -50,13 +50,13 @@
 
         const img = document.createElement("img");
         img.src = dataUrl;
-        img.alt = "Parol QR Kodu";
+        img.alt = "Itraxyl QR Kodu";
         img.style.borderRadius = "0.5rem";
         qrDiv.appendChild(img);
 
         const link = document.getElementById("link");
         link.href = url;
-        link.textContent = " QR kodu tıklayarak Parol sayfasına git";
+        link.textContent = " QR kodu tıklayarak ilaç sayfasına git";
         link.classList.remove("!hidden");
       });
     }
