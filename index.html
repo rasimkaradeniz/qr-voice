@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>İlaç QR Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mx-auto lg:px-0 px-4">
+    <div class="flex items-center flex-col py-4 space-y-4">
+      <h1 class="text-3xl font-semibold">💊 İlaç QR Demo</h1>
+      <p>“QR Kod Oluştur” tuşuna bastığında, Parol ilacı için QR kod üretilecektir.</p>
+
+      <button onclick="generateQR()"
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer">QR
+        Kod Oluştur</button>
+
+      <div id="qrcode" class="border rounded-lg flex items-center justify-center"></div>
+      <a id="link" href="#" target="_blank" class="font-semibold  items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 cursor-pointer !hidden"></a>
+    </div>
+
+  </div>
+
+  <script>
+    function generateQR() {
+      const url = window.location.origin + "/parol.html"; // yönlenecek sayfa
+      const qrDiv = document.getElementById("qrcode");
+      qrDiv.innerHTML = ""; // eski QR'ı temizle
+
+      // QR görselini oluştur
+      QRCode.toDataURL(url, { width: 200 }, function (error, dataUrl) {
+        if (error) {
+          console.error(error);
+          return;
+        }
+
+        const img = document.createElement("img");
+        img.src = dataUrl;
+        img.alt = "Parol QR Kodu";
+        img.style.borderRadius = "0.5rem";
+        qrDiv.appendChild(img);
+
+        const link = document.getElementById("link");
+        link.href = url;
+        link.textContent = " QR kodu tıklayarak Parol sayfasına git";
+        link.classList.remove("!hidden");
+      });
+    }
+  </script>
+
+</body>
+
+</html>
